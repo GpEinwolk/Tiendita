@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/10/2017 08:19:24 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.Cliente" table="cliente" catalog="puntovent" optimistic-lock="version">
+        <id name="idcliente" type="java.lang.Integer">
+            <column name="idcliente" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="55" not-null="true" />
+        </property>
+        <property name="apM" type="string">
+            <column name="apM" length="55" not-null="true" />
+        </property>
+        <property name="apP" type="string">
+            <column name="apP" length="55" not-null="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="45" not-null="true" />
+        </property>
+        <property name="calle" type="string">
+            <column name="calle" length="45" not-null="true" />
+        </property>
+        <property name="noInt" type="int">
+            <column name="noInt" not-null="true" />
+        </property>
+        <property name="noExt" type="int">
+            <column name="noExt" not-null="true" />
+        </property>
+        <property name="colonia" type="string">
+            <column name="colonia" length="100" not-null="true" />
+        </property>
+        <property name="cp" type="int">
+            <column name="cp" not-null="true" />
+        </property>
+        <property name="ciudad" type="string">
+            <column name="ciudad" length="100" not-null="true" />
+        </property>
+        <property name="estado" type="string">
+            <column name="estado" length="100" not-null="true" />
+        </property>
+        <property name="pais" type="string">
+            <column name="pais" length="45" not-null="true" />
+        </property>
+        <property name="rfc" type="string">
+            <column name="rfc" length="13" not-null="true" />
+        </property>
+        <property name="correo" type="string">
+            <column name="correo" length="55" not-null="true" />
+        </property>
+        <set name="ventas" table="venta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="cliente_idcliente" not-null="true" />
+            </key>
+            <one-to-many class="Modelo.Venta" />
+        </set>
+    </class>
+</hibernate-mapping>

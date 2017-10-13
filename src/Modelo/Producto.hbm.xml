@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/10/2017 08:19:24 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.Producto" table="producto" catalog="puntovent" optimistic-lock="version">
+        <id name="idproducto" type="java.lang.Integer">
+            <column name="idproducto" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="garantia" class="Modelo.Garantia" fetch="select">
+            <column name="garantia_idgarantia" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="55" not-null="true" />
+        </property>
+        <property name="codigo" type="string">
+            <column name="codigo" length="55" />
+        </property>
+        <property name="cantidad" type="int">
+            <column name="cantidad" not-null="true" />
+        </property>
+        <property name="costo" type="big_decimal">
+            <column name="costo" precision="9" not-null="true" />
+        </property>
+        <property name="precio" type="big_decimal">
+            <column name="precio" precision="9" not-null="true" />
+        </property>
+        <property name="utilidad" type="big_decimal">
+            <column name="utilidad" precision="9" />
+        </property>
+        <property name="espef" type="string">
+            <column name="espef" not-null="true" />
+        </property>
+        <property name="fechaIng" type="timestamp">
+            <column name="fechaIng" length="19" not-null="true" />
+        </property>
+        <property name="servicio" type="byte">
+            <column name="servicio" not-null="true" />
+        </property>
+        <set name="ventas" table="venta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="producto_idproducto" not-null="true" />
+            </key>
+            <one-to-many class="Modelo.Venta" />
+        </set>
+    </class>
+</hibernate-mapping>

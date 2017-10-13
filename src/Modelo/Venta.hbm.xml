@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/10/2017 08:19:24 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.Venta" table="venta" catalog="puntovent" optimistic-lock="version">
+        <composite-id name="id" class="Modelo.VentaId">
+            <key-property name="clienteIdcliente" type="int">
+                <column name="cliente_idcliente" />
+            </key-property>
+            <key-property name="productoIdproducto" type="int">
+                <column name="producto_idproducto" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="cliente" class="Modelo.Cliente" update="false" insert="false" fetch="select">
+            <column name="cliente_idcliente" not-null="true" />
+        </many-to-one>
+        <many-to-one name="login" class="Modelo.Login" fetch="select">
+            <column name="login_idlogin" not-null="true" />
+        </many-to-one>
+        <many-to-one name="producto" class="Modelo.Producto" update="false" insert="false" fetch="select">
+            <column name="producto_idproducto" not-null="true" />
+        </many-to-one>
+        <property name="fecha" type="timestamp">
+            <column name="fecha" length="19" not-null="true" />
+        </property>
+        <property name="cantidad" type="int">
+            <column name="cantidad" not-null="true" />
+        </property>
+        <property name="ganancia" type="big_decimal">
+            <column name="ganancia" precision="9" not-null="true" />
+        </property>
+        <property name="cancelada" type="byte">
+            <column name="cancelada" not-null="true" />
+        </property>
+        <property name="cambio" type="big_decimal">
+            <column name="cambio" precision="9" not-null="true" />
+        </property>
+        <property name="motivo" type="string">
+            <column name="motivo" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

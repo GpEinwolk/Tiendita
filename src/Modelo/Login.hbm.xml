@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/10/2017 08:19:24 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.Login" table="login" catalog="puntovent" optimistic-lock="version">
+        <id name="idlogin" type="java.lang.Integer">
+            <column name="idlogin" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="usuario" class="Modelo.Usuario" fetch="select">
+            <column name="usuario_idusuario" not-null="true" />
+        </many-to-one>
+        <property name="fechaEnt" type="timestamp">
+            <column name="fechaEnt" length="19" not-null="true" />
+        </property>
+        <property name="fechaSal" type="timestamp">
+            <column name="fechaSal" length="19" not-null="true" />
+        </property>
+        <property name="dineroEnt" type="big_decimal">
+            <column name="dineroEnt" precision="9" />
+        </property>
+        <property name="dineroSal" type="big_decimal">
+            <column name="dineroSal" precision="9" />
+        </property>
+        <set name="ventas" table="venta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="login_idlogin" not-null="true" />
+            </key>
+            <one-to-many class="Modelo.Venta" />
+        </set>
+    </class>
+</hibernate-mapping>
