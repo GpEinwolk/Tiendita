@@ -50,7 +50,7 @@ public class Login extends javax.swing.JFrame {
         setName("Login"); // NOI18N
         setUndecorated(true);
 
-        panelLogin.setBackground(new java.awt.Color(0, 51, 51));
+        panelLogin.setBackground(new java.awt.Color(0, 0, 0));
 
         campoUsuario.setBackground(new java.awt.Color(51, 51, 51));
         campoUsuario.setFont(new java.awt.Font("Century Schoolbook", 0, 18)); // NOI18N
