@@ -27,7 +27,15 @@ public class Operaciones {
             if (usuario != null) {
 
                 if (usuario.getPass().equals(password)) {
-                    ventanaVentas vnta = new ventanaVentas(usuario.getNombre());
+                    int nivel = usuario.getNivel();
+                    String lv;
+                    if (nivel==2){
+                    lv = "Vendedor";
+                    }else{
+                    lv = "Administrador";
+                    }
+                    ventanaVentas vnta = new ventanaVentas();
+                    vnta.setTitle(lv);
                     vnta.setVisible(true);
                     return true;
                 } else {

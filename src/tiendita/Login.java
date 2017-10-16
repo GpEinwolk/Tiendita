@@ -54,29 +54,29 @@ public class Login extends javax.swing.JFrame {
 
         campoUsuario.setBackground(new java.awt.Color(51, 51, 51));
         campoUsuario.setFont(new java.awt.Font("Century Schoolbook", 0, 18)); // NOI18N
-        campoUsuario.setForeground(new java.awt.Color(5, 175, 133));
+        campoUsuario.setForeground(new java.awt.Color(153, 153, 153));
 
         labelUsuario.setFont(new java.awt.Font("Century Schoolbook", 1, 18)); // NOI18N
-        labelUsuario.setForeground(new java.awt.Color(54, 97, 127));
+        labelUsuario.setForeground(new java.awt.Color(102, 102, 102));
         labelUsuario.setText("Nombre de Usuario");
 
         labelContraseña.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        labelContraseña.setForeground(new java.awt.Color(54, 97, 127));
+        labelContraseña.setForeground(new java.awt.Color(102, 102, 102));
         labelContraseña.setText("Contraseña");
         labelContraseña.setToolTipText("");
 
         textPass.setBackground(new java.awt.Color(51, 51, 51));
         textPass.setFont(new java.awt.Font("Century Schoolbook", 0, 18)); // NOI18N
-        textPass.setForeground(new java.awt.Color(5, 175, 133));
+        textPass.setForeground(new java.awt.Color(153, 153, 153));
         textPass.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 textPassKeyPressed(evt);
             }
         });
 
-        botonIniciar.setBackground(new java.awt.Color(5, 175, 133));
+        botonIniciar.setBackground(new java.awt.Color(0, 0, 0));
         botonIniciar.setFont(new java.awt.Font("Century Schoolbook", 0, 18)); // NOI18N
-        botonIniciar.setForeground(new java.awt.Color(0, 51, 51));
+        botonIniciar.setForeground(new java.awt.Color(153, 153, 153));
         botonIniciar.setText("Iniciar Sesión");
         botonIniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,9 +84,9 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        botonSalir.setBackground(new java.awt.Color(5, 175, 133));
+        botonSalir.setBackground(new java.awt.Color(0, 0, 0));
         botonSalir.setFont(new java.awt.Font("Century Schoolbook", 0, 18)); // NOI18N
-        botonSalir.setForeground(new java.awt.Color(0, 51, 51));
+        botonSalir.setForeground(new java.awt.Color(153, 153, 153));
         botonSalir.setText("Salir");
         botonSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,6 +161,7 @@ public class Login extends javax.swing.JFrame {
         String pass = new String(textPass.getPassword());
         String usuario = campoUsuario.getText();
         Operaciones.Login(usuario, pass);
+        this.dispose();
         
     }//GEN-LAST:event_botonIniciarActionPerformed
 
